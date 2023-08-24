@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, theme } from 'antd';
 import HomeContent from './HomeContent';
 import HeaderCom from '../../components/HeaderCom';
 import FooterCom from '../../components/FooterCom';
-import CarouselCom from '../../components/CarouselCom';
-
+import SliderCom from '../../components/SliderCom';
 
 const Home = () => {
+  const [searchText, setSearchText] = useState("")
   return (
     <Layout className="layout">
+      <HeaderCom setSearchText={setSearchText} />
 
-      <HeaderCom />
-      <CarouselCom />
-      <HomeContent />
+      {/* <SliderCom /> */}
+      <HomeContent searchText={searchText} />
 
       <FooterCom />
     </Layout>

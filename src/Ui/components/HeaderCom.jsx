@@ -1,7 +1,6 @@
-import { Search, Watch } from 'lucide-react';
+import { Search } from 'lucide-react';
 import React, { useState } from 'react';
 import {
-  Collapse,
   Navbar,
   NavbarBrand,
   Nav,
@@ -9,8 +8,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
-function HeaderCom(args) {
-  const [SearchText, setSearchText] = useState("");
+function HeaderCom(props) {
 
   return (
     <div>
@@ -43,9 +41,8 @@ function HeaderCom(args) {
           className='border-0 rounded-1 p-2 w-25 ps-2 '
           type="text"
           placeholder='Search your text here....!'
-          onChange={(e) => setSearchText(e?.target?.value)} />
-        <Search className='ms-2 me-5'
-          color="#f5f5dc" />
+          onChange={(e) => props?.setSearchText(e?.target?.value)} />
+        <Search className='ms-2 me-5' color="#f5f5dc" />
       </Navbar>
     </div>
   );

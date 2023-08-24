@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import { Heart } from 'lucide-react'
 
 export default function CardCom(props) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <>
       <Card
@@ -11,16 +20,27 @@ export default function CardCom(props) {
           width: '18rem'
         }}
       >
-        <img
-          className='m-2'
+        <div
+          className='m-4'
           style={{
-            width: '150px',
             height: '250px',
-            alignSelf: 'center'
+            alignSelf: 'center',
+            overflow: 'hidden',
+            transition: 'transform 0.3s',
+            transform: isHovered ? 'scale(1.1)' : 'scale(1)'
           }}
-          alt="Sample"
-          src={props?.data?.imageURL}
-        />
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <img
+            alt="Sample"
+            src={props?.data?.imageURL}
+            style={{
+              height: '100%',
+              objectFit: 'cover'
+            }}
+          />
+        </div>
         <CardBody>
           <CardTitle tag="h5">
             {props?.data?.name}
@@ -30,11 +50,11 @@ export default function CardCom(props) {
             tag="h3">
             Rs: {props?.data?.price}
           </CardSubtitle>
-          <Button className='w-100 mb-2' style={{ color: "#964b00", backgroundColor: '#BAB86C' }}>
+          <Button className='w-100 mb-2'>
             Buy Now
           </Button>
-          <Button className='w-100' style={{ color: "#964b00", backgroundColor: '#BAB86C' }}>
-            <Heart color="black" /> Wishlist
+          <Button className='w-100'>
+            <Heart /> Wishlist
           </Button>
         </CardBody>
       </Card >
