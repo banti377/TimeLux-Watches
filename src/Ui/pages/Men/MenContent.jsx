@@ -8,7 +8,7 @@ export default function HomeContent(props) {
     useEffect(() => {
 
         let filteredData = WatchData.filter((e) => {
-            return e?.name
+            return e?.gender === "Men" && e?.name
                 ?.toLowerCase?.()
                 ?.includes?.(props?.searchText?.toLowerCase?.());
         });
@@ -18,7 +18,7 @@ export default function HomeContent(props) {
         <>
             <div style={{ backgroundColor: '#f5f5dc' }} className='d-flex flex-wrap justify-content-around'>
                 {
-                    WatchData?.map?.((e) => {
+                    Data?.map?.((e) => {
                         return <CardCom data={e} />
                     })
                 }
