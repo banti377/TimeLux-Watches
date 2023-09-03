@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Layout, theme } from 'antd';
-import HomeContent from './HomeContent';
+import WomenContent from './WomenContent';
 import HeaderCom from '../../components/HeaderCom';
 import FooterCom from '../../components/FooterCom';
 import SliderCom from '../../components/SliderCom';
 
-const Home = () => {
+const Women = () => {
   const [searchText, setSearchText] = useState("")
   return (
     <Layout className="layout">
       <HeaderCom setSearchText={setSearchText} />
 
-      <SliderCom />
-      <HomeContent searchText={searchText} />
+      {/* <SliderCom /> */}
+      <WomenContent searchText={searchText} />
 
       <FooterCom />
     </Layout>
   );
 };
-export default Home;
+export default Women;
