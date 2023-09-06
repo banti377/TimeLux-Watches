@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
-import { Heart } from 'lucide-react'
+import { Filter, Heart } from 'lucide-react'
 
 export default function CardCom(props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -27,7 +27,8 @@ export default function CardCom(props) {
             alignSelf: 'center',
             overflow: 'hidden',
             transition: 'transform 0.3s',
-            transform: isHovered ? 'scale(1.1)' : 'scale(1)'
+            transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+            filter: 'drop - shadow(10px 10px 100px yellow)'
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

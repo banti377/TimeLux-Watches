@@ -8,7 +8,7 @@ export default function HomeContent(props) {
     useEffect(() => {
 
         let filteredData = WatchData.filter((e) => {
-            return e?.name
+            return e?.gender === "Kids" && e?.name
                 ?.toLowerCase?.()
                 ?.includes?.(props?.searchText?.toLowerCase?.());
         });
