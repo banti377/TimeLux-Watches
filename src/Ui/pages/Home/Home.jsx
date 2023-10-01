@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Layout, theme } from "antd";
 import HomeContent from "./HomeContent";
-import HeaderCom from "../../components/HeaderCom";
 import FooterCom from "../../components/FooterCom";
 import SliderCom from "../../components/SliderCom";
+import HeaderCom from "../../components/Header/HeaderCom";
 
 const Home = () => {
   return (
     <Layout className="layout">
       <HeaderCom />
-
       <SliderCom />
       <HomeContent />
 

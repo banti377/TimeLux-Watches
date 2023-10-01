@@ -1,6 +1,8 @@
 import { Search } from "lucide-react";
 import React, { useState } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { NavLink } from "react-router-dom";
+import { Navbar, NavbarBrand, Nav, NavItem } from "reactstrap";
+import "./index.css";
 
 function HeaderCom(props) {
   return (
@@ -19,22 +21,22 @@ function HeaderCom(props) {
         </NavbarBrand>
         <Nav style={{ gap: "50px" }}>
           <NavItem>
-            <NavLink href="" style={{ color: "#f5f5dc" }}>
+            <NavLink to="" style={{ color: "#f5f5dc" }}>
               Home
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="" style={{ color: "#f5f5dc" }}>
+            <NavLink to="/men" style={{ color: "#f5f5dc" }}>
               Men
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="" style={{ color: "#f5f5dc" }}>
+            <NavLink to="/women" style={{ color: "#f5f5dc" }}>
               Women
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="" style={{ color: "#f5f5dc" }}>
+            <NavLink to="/kids" style={{ color: "#f5f5dc" }}>
               Kids
             </NavLink>
           </NavItem>
