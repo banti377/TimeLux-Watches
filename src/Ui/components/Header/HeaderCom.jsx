@@ -21,24 +21,16 @@ function HeaderCom(props) {
         </NavbarBrand>
         <Nav style={{ gap: "50px" }}>
           <NavItem>
-            <NavLink to="" style={{ color: "#f5f5dc" }}>
-              Home
-            </NavLink>
+            <NavLink to="">Home</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/men" style={{ color: "#f5f5dc" }}>
-              Men
-            </NavLink>
+            <NavLink to="/men">Men</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/women" style={{ color: "#f5f5dc" }}>
-              Women
-            </NavLink>
+            <NavLink to="/women">Women</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/kids" style={{ color: "#f5f5dc" }}>
-              Kids
-            </NavLink>
+            <NavLink to="/kids">Kids</NavLink>
           </NavItem>
         </Nav>
         <div>
@@ -47,7 +39,6 @@ function HeaderCom(props) {
             className="border-0 rounded-1 p-2 ps-2"
             type="text"
             placeholder="Search your text here....!"
-            onChange={(e) => props?.setSearchText(e?.target?.value)}
           />
           <Search className="ms-2 me-5" color="#f5f5dc" />
         </div>

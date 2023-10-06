@@ -1,5 +1,11 @@
+.active {
+  text-transform: uppercase;
+  color: #964b00;
+}
+
 li a {
   text-decoration: none;
+  color: #f5f5dc;
 }
 
 li a:hover {
