@@ -11,3 +11,7 @@ li a {
 li a:hover {
   color: #964b00;
 }
+
+.userIcon:hover {
+  color: #f5f5dc;
+}

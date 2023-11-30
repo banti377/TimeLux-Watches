@@ -9,6 +9,9 @@ import Men from "../Ui/pages/Men";
 import Women from "../Ui/pages/Women";
 import { Provider } from "react-redux";
 import { store } from "../redux/app/store";
+import About from "../Ui/pages/About";
+import Contact from "../Ui/pages/Contact";
+import LoginForm from "../Ui/pages/Login";
 
 export default function Router() {
   return (
@@ -18,10 +21,12 @@ export default function Router() {
           <HeaderCom />
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/login" element={<LoginForm />} /> */}
+            <Route path="/login" element={<LoginForm />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/kids" element={<Kids />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Error404 />} />
           </Routes>
           <FooterCom />
