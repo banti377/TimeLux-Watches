@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { login } from "../../../redux/fetures/auth/authSlice";
 export default function LoginForm() {
   let [Data, setData] = useState({
     email: "",
@@ -19,10 +20,9 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     axios
-      .post(`${BE_URL}/user/signin`, data)
+      .post("http://localhost:9999/user/signin", data)
       .then((resData) => {
         dispatch(login(resData.data));
-        console.log("resData.data", resData.data);
         // do form blanck
         setData({
           email: "",
@@ -35,7 +35,6 @@ export default function LoginForm() {
         }
       })
       .catch((error) => {
-        console.log("error", error);
         toast.error(error.message);
       });
   };

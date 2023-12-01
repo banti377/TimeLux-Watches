@@ -12,6 +12,7 @@ import { store } from "../redux/app/store";
 import About from "../Ui/pages/About";
 import Contact from "../Ui/pages/Contact";
 import LoginForm from "../Ui/pages/Login";
+import Dashboard from "../Ui/pages/Admin/Dashboard/Dashboard";
 
 export default function Router() {
   return (
@@ -22,6 +23,7 @@ export default function Router() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/kids" element={<Kids />} />
