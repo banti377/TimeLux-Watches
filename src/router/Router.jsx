@@ -13,6 +13,7 @@ import About from "../Ui/pages/About";
 import Contact from "../Ui/pages/Contact";
 import LoginForm from "../Ui/pages/Login";
 import Dashboard from "../Ui/pages/Admin/Dashboard/Dashboard";
+import ProductCom from "../Ui/pages/Admin/Product/ProductCom";
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/products" element={<ProductCom />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/kids" element={<Kids />} />

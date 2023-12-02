@@ -5,7 +5,7 @@ let user = localStorage.getItem("user");
 
 const initialState = {
   user: JSON.parse(user) || {},
-  token: token,
+  token: JSON.parse(token),
 };
 
 const authSlice = createSlice({
@@ -13,13 +13,14 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      localStorage.setItem("token", JSON.stringify(action?.payload?.token));
-      localStorage.setItem("user", action?.payload?.data);
-      state.user = action.payload.data;
-      state.token = action.payload.token;
+      localStorage.setItem("token", JSON.stringify(action.payload.token));
+      localStorage.setItem("user", JSON.stringify(action?.payload?.data));
+      state.user = action?.payload?.data;
+      state.token = action?.payload?.token;
     },
     logOut: (state) => {
       state.user = {};
+      localStorage.clear();
     },
   },
 });
