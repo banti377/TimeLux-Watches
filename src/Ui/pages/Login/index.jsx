@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { BE_URL } from "../../../config";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../../redux/fetures/auth/authSlice";
+
 export default function LoginForm() {
   let [Data, setData] = useState({
     email: "",
@@ -20,7 +22,7 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:9999/user/signin", data)
+      .post(`${BE_URL}/user/signin`, data)
       .then((resData) => {
         dispatch(login(resData.data));
         // do form blanck
