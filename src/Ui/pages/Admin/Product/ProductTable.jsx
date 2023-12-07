@@ -1,4 +1,4 @@
-import { Pencil } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Table } from "reactstrap";
@@ -12,7 +12,7 @@ export default function ProductTable() {
 
   useEffect(() => {
     setProductData(allData);
-  }, []);
+  }, [allData]);
 
   return (
     <>
@@ -30,26 +30,39 @@ export default function ProductTable() {
               </tr>
             </thead>
             <tbody>
-              {productData?.map?.((e) => {
-                <tr>
-                  <th key={e?.id} scope="row">
-                    {i + 1}
-                  </th>
-                  <td>{e?.title}</td>
-                  <td>{e?.description}</td>
-                  <td>{e?.price}</td>
-                  <td>
-                    <img
-                      style={{ maxHeight: "100px", maxWidth: "100px" }}
-                      src="{e?.thumbnail}"
-                      alt=""
-                    />
-                  </td>
-                  <td>
-                    <Pencil color="#918888" />
-                    <Trash2 color="#918888" />
-                  </td>
-                </tr>;
+              {productData?.map?.((e, i) => {
+                return (
+                  <tr key={e?._id}>
+                    <th scope="row">{i + 1}</th>
+                    <td style={{ maxWidth: "10vw" }} className="text-truncate">
+                      {e?.title}
+                    </td>
+                    <td style={{ maxWidth: "20vw" }} className="text-truncate">
+                      {e?.description}
+                    </td>
+                    <td>{e?.price}</td>
+                    <td>
+                      <img
+                        style={{ maxHeight: "100px", maxWidth: "100px" }}
+                        src="{e?.thumbnail}"
+                        alt=""
+                      />
+                    </td>
+                    <td>
+                      <Pencil
+                        className="me-4"
+                        type="button"
+                        color="#918888"
+                        onClick={() => updateHandler(e, i)}
+                      />
+                      <Trash2
+                        onClick={() => deleteHandler(e?._id)}
+                        type="button"
+                        color="#918888"
+                      />
+                    </td>
+                  </tr>
+                );
               })}
             </tbody>
           </Table>
