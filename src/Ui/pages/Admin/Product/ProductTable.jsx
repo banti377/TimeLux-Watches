@@ -1,6 +1,6 @@
 import { Pencil, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "reactstrap";
 
 export default function ProductTable() {
@@ -9,10 +9,17 @@ export default function ProductTable() {
   const allData = useSelector((state) => {
     return state?.productReducer?.products;
   });
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setProductData(allData);
   }, [allData]);
+
+  const deleteHandler = (id) => {};
+
+  const updateHandler = (data, index) => {
+    toggle();
+  };
 
   return (
     <>
