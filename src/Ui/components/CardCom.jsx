@@ -1,6 +1,13 @@
-import React, { useState } from 'react'
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
-import { Filter, Heart } from 'lucide-react'
+import React, { useState } from "react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap";
+import { Filter, Heart } from "lucide-react";
 
 export default function CardCom(props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,20 +22,21 @@ export default function CardCom(props) {
   return (
     <>
       <Card
-        className='m-2'
+        className="m-2"
         style={{
-          width: '18rem'
+          width: "18rem",
         }}
+        onClick={props?.onClick}
       >
         <div
-          className='m-4'
+          className="m-4"
           style={{
-            height: '250px',
-            alignSelf: 'center',
-            overflow: 'hidden',
-            transition: 'transform 0.3s',
-            transform: isHovered ? 'scale(1.1)' : 'scale(1)',
-            filter: 'drop - shadow(10px 10px 100px yellow)'
+            height: "250px",
+            alignSelf: "center",
+            overflow: "hidden",
+            transition: "transform 0.3s",
+            transform: isHovered ? "scale(1.1)" : "scale(1)",
+            filter: "drop - shadow(10px 10px 100px yellow)",
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -37,28 +45,22 @@ export default function CardCom(props) {
             alt="Sample"
             src={props?.data?.imageURL}
             style={{
-              height: '100%',
-              objectFit: 'cover'
+              height: "100%",
+              objectFit: "cover",
             }}
           />
         </div>
         <CardBody>
-          <CardTitle tag="h5">
-            {props?.data?.name}
-          </CardTitle>
-          <CardSubtitle
-            className="mb-2 text-muted"
-            tag="h3">
+          <CardTitle tag="h5">{props?.data?.name}</CardTitle>
+          <CardSubtitle className="mb-2 text-muted" tag="h3">
             Rs: {props?.data?.price}
           </CardSubtitle>
-          <Button className='w-100 mb-2'>
-            Buy Now
-          </Button>
-          <Button className='w-100'>
+          <Button className="w-100 mb-2">Buy Now</Button>
+          <Button className="w-100">
             <Heart /> Wishlist
           </Button>
         </CardBody>
-      </Card >
+      </Card>
     </>
-  )
+  );
 }

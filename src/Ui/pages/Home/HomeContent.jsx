@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CardCom from "../../components/CardCom";
 import WatchData from "../../../utils/watch.json";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeContent() {
   const [Data, setData] = useState(WatchData);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -12,7 +14,13 @@ export default function HomeContent() {
         className="d-flex flex-wrap justify-content-around"
       >
         {Data?.map?.((e, i) => {
-          return <CardCom key={i + Math.random()} data={e} />;
+          return (
+            <CardCom
+              key={i + Math.random()}
+              data={e}
+              onclick={() => navigate(`productpage/${e?._id}`)}
+            />
+          );
         })}
       </div>
     </>

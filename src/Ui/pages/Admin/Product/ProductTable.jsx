@@ -1,9 +1,13 @@
+import axios from "axios";
 import { Pencil, Trash2 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table } from "reactstrap";
+import { BE_URL } from "../../../../config";
+import { toast } from "react-toastify";
+import { fetchProductData } from "../../../../redux/fetures/product/productSlice";
 
-export default function ProductTable() {
+export default function ProductTable({ toggle, setDefaultData, setIndex }) {
   let [productData, setProductData] = useState([]);
 
   const allData = useSelector((state) => {
@@ -15,10 +19,25 @@ export default function ProductTable() {
     setProductData(allData);
   }, [allData]);
 
-  const deleteHandler = (id) => {};
+  const deleteHandler = (id) => {
+    axios
+      .delete(`${BE_URL}/product/delete/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      })
+      .then((res) => {
+        toast.success("Product deleted...!");
+        dispatch(fetchProductData());
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   const updateHandler = (data, index) => {
     toggle();
+    setDefaultData(data);
+    setIndex(index);
   };
 
   return (
@@ -50,8 +69,8 @@ export default function ProductTable() {
                     <td>{e?.price}</td>
                     <td>
                       <img
-                        style={{ maxHeight: "100px", maxWidth: "100px" }}
-                        src="{e?.thumbnail}"
+                        style={{ maxWidth: "100px", maxHeight: "100px" }}
+                        src={e?.thumbnail}
                         alt=""
                       />
                     </td>

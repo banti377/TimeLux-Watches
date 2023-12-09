@@ -25,6 +25,7 @@ export default function LoginForm() {
       .post(`${BE_URL}/user/signin`, data)
       .then((resData) => {
         dispatch(login(resData.data));
+        console.log("----", resData.data);
         // do form blanck
         setData({
           email: "",

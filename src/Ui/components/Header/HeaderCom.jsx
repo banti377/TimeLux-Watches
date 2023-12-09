@@ -1,4 +1,4 @@
-import { Search, User } from "lucide-react";
+import { Search, User2 } from "lucide-react";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
@@ -79,7 +79,10 @@ function HeaderCom(props) {
           )}
 
           {JSON.stringify(userData) !== "{}" ? (
-            <User className="userIcon ms-4 me-4" />
+            <User2
+              className="userIcon ms-4 me-4"
+              onClick={() => navigate("/profile")}
+            />
           ) : (
             <Button
               style={{

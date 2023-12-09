@@ -19,6 +19,9 @@ const productSlice = createSlice({
     addProduct: (state, { payload }) => {
       state.products.unshift(payload.data);
     },
+    updateProduct: (state, { payload }) => {
+      state.products.splice(payload.index, 1, payload?.data);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchProductData.fulfilled, (state, { payload }) => {
@@ -28,4 +31,4 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
-export const { addProduct } = productSlice.actions;
+export const { addProduct, updateProduct } = productSlice.actions;
