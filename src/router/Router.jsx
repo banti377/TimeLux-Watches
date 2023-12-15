@@ -16,6 +16,7 @@ import Dashboard from "../Ui/pages/Admin/Dashboard/Dashboard";
 import ProductCom from "../Ui/pages/Admin/Product/ProductCom";
 import Profile from "../Ui/pages/Profile/profile";
 import ProductPage from "../Ui/pages/ProductPage/ProductPage";
+import SignUp from "../Ui/pages/Signup/SignUp";
 
 export default function Router() {
   return (
@@ -26,6 +27,7 @@ export default function Router() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin/products" element={<ProductCom />} />
             <Route path="/men" element={<Men />} />
