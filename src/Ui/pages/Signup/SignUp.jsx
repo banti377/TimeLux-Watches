@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { BE_URL } from "../../../config";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../../redux/fetures/auth/authSlice";
 
 export default function SignUp() {
@@ -50,6 +50,7 @@ export default function SignUp() {
     <>
       <div className="d-flex align-content-center justify-content-center p-3">
         <Form
+          style={{ backgroundColor: "#BAB86C" }}
           onSubmit={submitHandler}
           className="w-50 border border-dark p-3 rounded-3"
         >
@@ -143,7 +144,8 @@ export default function SignUp() {
               type="text"
             />
           </FormGroup>
-          <Button color="danger" className="w-100">
+          <Link to={"/login"}>Already have Account..?</Link>
+          <Button color="danger" className="w-100 mt-3">
             Submit
           </Button>
         </Form>

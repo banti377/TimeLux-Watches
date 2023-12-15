@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import axios from "axios";
 import { BE_URL } from "../../../config";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../../redux/fetures/auth/authSlice";
+import { Button } from "reactstrap";
 
 export default function LoginForm() {
   let [Data, setData] = useState({
@@ -70,7 +71,9 @@ export default function LoginForm() {
           />
           {errors.name && <span>This field is required</span>}
           <Link to={"/signup"}>Create new Account..?</Link>
-          <input className="border-0 rounded-3" type="submit" />
+          <Button color="danger" className="w-100">
+            Submit
+          </Button>
         </form>
       </div>
     </>

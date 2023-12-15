@@ -4,6 +4,7 @@ import axios from "axios";
 
 const initialState = {
   products: [],
+  searchText: "",
 };
 
 export const fetchProductData = createAsyncThunk("product/fetchProduct", () => {
