@@ -8,9 +8,15 @@ const initialState = {
 };
 
 export const fetchProductData = createAsyncThunk("product/fetchProduct", () => {
-  return axios.get(`${BE_URL}/product/getAll`).then((resData) => {
-    return resData.data;
-  });
+  return axios
+    .get(`${BE_URL}/product/getAll`, {
+      params: {
+        gender: "male",
+      },
+    })
+    .then((resData) => {
+      return resData.data;
+    });
 });
 
 const productSlice = createSlice({
@@ -21,7 +27,7 @@ const productSlice = createSlice({
       state.products.unshift(payload.data);
     },
     updateProduct: (state, { payload }) => {
-      state.products.splice(payload.index, 1, payload?.data);
+      state.products.splice(payload?.index, 1, payload?.data);
     },
   },
   extraReducers: (builder) => {

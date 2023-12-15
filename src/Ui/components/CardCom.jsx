@@ -7,7 +7,7 @@ import {
   CardText,
   CardTitle,
 } from "reactstrap";
-import { Filter, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function CardCom(props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -42,6 +42,7 @@ export default function CardCom(props) {
           onMouseLeave={handleMouseLeave}
         >
           <img
+            onClick={props?.onClick}
             alt="Sample"
             src={props?.data?.imageURL}
             style={{
@@ -51,10 +52,15 @@ export default function CardCom(props) {
           />
         </div>
         <CardBody>
-          <CardTitle tag="h5">{props?.data?.name}</CardTitle>
-          <CardSubtitle className="mb-2 text-muted" tag="h3">
-            Rs: {props?.data?.price}
-          </CardSubtitle>
+          <div onClick={props?.onClick}>
+            <CardTitle tag="h5">{props?.data?.name}</CardTitle>
+            <CardSubtitle className="mb-2 text-muted" tag="h3">
+              Rs: {props?.data?.price}
+            </CardSubtitle>
+            <CardText className="text-truncate">
+              {props?.data?.description}
+            </CardText>
+          </div>
           <Button className="w-100 mb-2">Buy Now</Button>
           <Button className="w-100">
             <Heart /> Wishlist

@@ -31,11 +31,12 @@ export default ({ modal, toggle, updatedData, index, setIndex }) => {
     discountPercentage: "",
     availableStock: "",
   });
+  useEffect(() => {}, []);
+  const dispatch = useDispatch();
   useEffect(() => {
     setProductData(updatedData);
   }, [updatedData]);
 
-  const dispatch = useDispatch();
   const submitHandler = () => {
     toggle();
     axios
@@ -46,7 +47,6 @@ export default ({ modal, toggle, updatedData, index, setIndex }) => {
         },
       })
       .then((resData) => {
-        console.log("------>", resData);
         dispatch(addProduct(resData.data));
         toast.success("Product added...! ");
       })
@@ -66,6 +66,7 @@ export default ({ modal, toggle, updatedData, index, setIndex }) => {
       })
       .then((resData) => {
         dispatch(updateProduct({ index, data: resData?.data?.data }));
+
         setProductData({
           title: "",
           description: "",

@@ -15,8 +15,10 @@ export default function Profile() {
 
   return (
     <>
-      <h1>Profile</h1>
-      <LogOut role="button" color="#b62020" onClick={logoutHandler} />
+      <div className="m-5">
+        <h1>Profile</h1>
+        <LogOut role="button" color="#b62020" onClick={logoutHandler} />
+      </div>
     </>
   );
 }

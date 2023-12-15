@@ -2,15 +2,17 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BE_URL } from "../../../config";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 export default function ProductPage() {
   let [data, setData] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     axios
-      .get(`${BE_URL}/product/getProductById/`)
+      .get(`${BE_URL}/product/getProductById/${id}`)
       .then((resData) => {
-        setData(resData);
+        setData(resData.data.data);
       })
       .catch((err) => toast.error(err.message));
   }, []);

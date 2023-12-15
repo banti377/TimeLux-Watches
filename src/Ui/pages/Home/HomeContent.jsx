@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 export default function HomeContent() {
   const [Data, setData] = useState(WatchData);
   const navigate = useNavigate();
+  useEffect(() => {
+    setData(Data);
+  }, [Data]);
 
   return (
     <>

@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProductData } from "../../../redux/fetures/product/productSlice";
 
 const Home = () => {
-  let [allProduct, setAllProduct] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {

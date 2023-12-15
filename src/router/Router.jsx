@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "../Ui/pages/Home/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error404 from "../Ui/pages/Error-404/Error404";
+import Home from "../Ui/pages/Home/Home";
 import HeaderCom from "../Ui/components/Header/HeaderCom";
 import FooterCom from "../Ui/components/FooterCom";
 import Kids from "../Ui/pages/Kids";
@@ -17,6 +17,9 @@ import ProductCom from "../Ui/pages/Admin/Product/ProductCom";
 import Profile from "../Ui/pages/Profile/profile";
 import ProductPage from "../Ui/pages/ProductPage/ProductPage";
 import SignUp from "../Ui/pages/Signup/SignUp";
+import UserList from "../Ui/pages/Admin/User/UserList";
+import Orders from "../Ui/pages/Admin/Order/Orders";
+import { AuthRoute, AdminAuth } from "./AuthRoute";
 
 export default function Router() {
   return (
@@ -25,18 +28,43 @@ export default function Router() {
         <BrowserRouter>
           <HeaderCom />
           <Routes>
+            {/* ----------- Public -------------- */}
+
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/products" element={<ProductCom />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
             <Route path="/kids" element={<Kids />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/productpage" element={<ProductPage />} />
+
+            {/* ----------- Auth -------------- */}
+
+            <Route
+              path="/profile"
+              element={<AuthRoute component={<Profile />} />}
+            />
+
+            {/* ----------- Admin -------------- */}
+
+            <Route
+              path="/admin/products"
+              element={<AdminAuth component={<ProductCom />} />}
+            />
+            <Route
+              path="/orders"
+              element={<AdminAuth component={<Orders />} />}
+            />
+            <Route
+              path="/user"
+              element={<AdminAuth component={<UserList />} />}
+            />
+            <Route
+              path="/admin/dashboard"
+              element={<AdminAuth component={<Dashboard />} />}
+            />
             <Route path="*" element={<Error404 />} />
           </Routes>
           <FooterCom />
