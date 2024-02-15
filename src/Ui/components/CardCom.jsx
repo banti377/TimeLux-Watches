@@ -54,15 +54,23 @@ export default function CardCom(props) {
         <CardBody>
           <div onClick={props?.onClick}>
             <CardTitle tag="h5">{props?.data?.name}</CardTitle>
-            <CardSubtitle className="mb-2 text-muted" tag="h3">
+            <CardSubtitle className="mb-2 text-muted" tag="h5">
               Rs: {props?.data?.price}
             </CardSubtitle>
             <CardText className="text-truncate">
               {props?.data?.description}
             </CardText>
           </div>
-          <Button className="w-100 mb-2">Buy Now</Button>
-          <Button className="w-100">
+          <Button
+            className="w-100 mb-2"
+            style={{ color: "#ffffff", backgroundColor: "#bab86c" }}
+          >
+            Buy Now
+          </Button>
+          <Button
+            className="w-100"
+            style={{ color: "#ffffff", backgroundColor: "#bab86c" }}
+          >
             <Heart /> Wishlist
           </Button>
         </CardBody>
