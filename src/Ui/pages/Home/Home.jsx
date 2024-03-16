@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Layout } from "antd";
 import HomeContent from "./HomeContent";
-import SliderCom from "../../components/SliderCom";
+import SliderCom from "../../components/Slider/SliderCom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductData } from "../../../redux/fetures/product/productSlice";
 

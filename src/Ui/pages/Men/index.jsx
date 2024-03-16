@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductData } from "../../../redux/fetures/product/productSlice";
-import CardCom from "../../components/CardCom";
+import CardCom from "../../components/Card/CardCom";
 
 export default function Men() {
   let [Data, setData] = useState([]);

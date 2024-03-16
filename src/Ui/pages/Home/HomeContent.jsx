@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CardCom from "../../components/CardCom";
+import CardCom from "../../components/Card/CardCom";
 import WatchData from "../../../utils/watch.json";
 import { useNavigate } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error404 from "../Ui/pages/Error-404/Error404";
 import Home from "../Ui/pages/Home/Home";
 import HeaderCom from "../Ui/components/Header/HeaderCom";
-import FooterCom from "../Ui/components/FooterCom";
+import FooterCom from "../Ui/components/Footer/FooterCom";
 import Kids from "../Ui/pages/Kids";
 import Men from "../Ui/pages/Men";
 import Women from "../Ui/pages/Women";
