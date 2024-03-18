@@ -11,10 +11,24 @@ import {
 } from "reactstrap";
 import "./index.css";
 import { useSelector } from "react-redux";
+import jsonData from "../../../utils/watch.json";
 
 function HeaderCom(props) {
   const userData = useSelector((state) => state?.auth?.user);
   const navigate = useNavigate();
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    const filtered = jsonData.filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
 
   return (
     <div>
@@ -76,6 +90,8 @@ function HeaderCom(props) {
                 className="border-0 rounded-1 p-2 ps-2"
                 type="text"
                 placeholder="Search your text here....!"
+                value={searchQuery}
+                onChange={handleSearch}
               />
               <Search className="ms-2" color="#f5f5dc" />
             </>
