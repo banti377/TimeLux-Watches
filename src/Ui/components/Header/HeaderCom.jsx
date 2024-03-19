@@ -12,6 +12,8 @@ import {
 import "./index.css";
 import { useSelector } from "react-redux";
 import jsonData from "../../../utils/watch.json";
+import CardCom from "../Card/CardCom"
+import Slider from "../Slider/SliderCom"
 
 function HeaderCom(props) {
   const userData = useSelector((state) => state?.auth?.user);
@@ -19,16 +21,25 @@ function HeaderCom(props) {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [originalProducts, setOriginalProducts] = useState(jsonData);
+
 
   const handleSearch = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    const filtered = jsonData.filter((product) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProducts(filtered);
+    if (query.trim() === "") {
+      // If search query is empty, show all products
+      setFilteredProducts([]);
+    } else {
+      // Filter products based on search query
+      const filtered = jsonData.filter((product) =>
+        product.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    }
   };
+
 
   return (
     <div>
@@ -115,6 +126,18 @@ function HeaderCom(props) {
           )}
         </Collapse>
       </Navbar>
+      <div className="container">
+        <div className="row">
+          {filteredProducts.map((product) => (
+            <div className="col-md-3 mb-3" key={product.id}>
+              <CardCom data={product} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <Slider data={searchQuery ? filteredProducts : originalProducts} />
+      </div>
     </div>
   );
 }

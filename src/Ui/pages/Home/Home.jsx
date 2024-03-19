@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <Layout className="layout">
-      <SliderCom />
+      {/* <SliderCom /> */}
       <HomeContent />
     </Layout>
   );
